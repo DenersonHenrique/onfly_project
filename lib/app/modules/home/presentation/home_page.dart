@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+import '../../../components/chart.dart';
 import '../../../models/transaction.dart';
 import '../../../constants/app_string.dart';
 import 'widgets/transaction_form.dart';
@@ -104,26 +105,26 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            // if (isLandscape)
-            //   Row(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: [
-            //       Text('Exibir Gráfico'),
-            //       Switch(
-            //         value: _showChart,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             _showChart = value;
-            //           });
-            //         },
-            //       ),
-            //     ],
-            //   ),
-            // if (_showChart || !isLandscape)
-            //   Container(
-            //     height: availableHeight * (isLandscape ? 0.8 : 0.3),
-            //     child: ChartWidget(_recentTransaction),
-            //   ),
+            if (isLandscape)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Exibir Gráfico'),
+                  Switch(
+                    value: _showChart,
+                    onChanged: (value) {
+                      setState(() {
+                        _showChart = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            if (_showChart || !isLandscape)
+              Container(
+                height: availableHeight * (isLandscape ? 0.8 : 0.3),
+                child: ChartWidget(_recentTransaction),
+              ),
             if (!_showChart || !isLandscape)
               Container(
                 height: availableHeight * (isLandscape ? 1 : 0.7),

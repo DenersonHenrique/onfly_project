@@ -60,15 +60,17 @@ class _TransactionItemWidgetState extends State<TransactionItemWidget> {
                     Icons.edit,
                     size: 24.0,
                   ),
-                  label: const Text('Editar'), // <-- Text
+                  label: const Text('Editar'),
                 ),
                 ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () => widget.onRemove(
+                    widget.transactionModel.id,
+                  ),
                   icon: const Icon(
                     Icons.delete,
                     size: 24.0,
                   ),
-                  label: const Text('Apagar'), // <-- Text
+                  label: const Text('Apagar'),
                 ),
               ],
             ),
