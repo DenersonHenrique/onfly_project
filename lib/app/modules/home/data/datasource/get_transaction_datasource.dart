@@ -8,19 +8,19 @@ abstract class ITransactionDataSource {
   Future<dynamic> getTransactions();
 }
 
-class TransactionDataSource extends ITransactionDataSource {
-  final IHttpClient client;
+// class TransactionDataSource extends ITransactionDataSource {
+//   final IHttpClient client;
 
-  TransactionDataSource(this.client);
+//   TransactionDataSource(this.client);
 
-  @override
-  Future<dynamic> getTransactions() async {
-    final response = await client.get(
-        '${ConstsApi.baseUrl}/collections/expense_7iGwvf/records');
-    if (response.statusCode == 200) {
-      return dynamic.fromJson(jsonDecode(response.data));
-    } else {
-      throw ServerException();
-    }
-  }
-}
+//   @override
+//   Future<dynamic> getTransactions() async {
+//     final response = await client.get(
+//         '${ConstsApi.baseUrl}/collections/expense_7iGwvf/records');
+//     if (response.statusCode == 200) {
+//       return dynamic.fromJson(jsonDecode(response.data));
+//     } else {
+//       throw ServerException();
+//     }
+//   }
+// }
