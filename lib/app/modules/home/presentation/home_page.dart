@@ -1,11 +1,10 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-import 'components/chart.dart';
-import 'models/transaction.dart';
-import 'constants/app_string.dart';
-import 'components/transaction_form.dart';
-import 'components/transaction_list.dart';
+import '../../../models/transaction.dart';
+import '../../../constants/app_string.dart';
+import 'widgets/transaction_form.dart';
+import 'widgets/transaction_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

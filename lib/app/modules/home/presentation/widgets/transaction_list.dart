@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'transaction_item.dart';
-import '../models/transaction.dart';
-import '../constants/app_string.dart';
+import '../../../../models/transaction.dart';
+import '../../../../constants/app_string.dart';
 
 class TransactionListWidget extends StatelessWidget {
   final void Function(String) onRemove;
