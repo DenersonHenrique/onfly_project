@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import '../../../../constants/consts_api.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/httpClient/http_client.dart';
+import '../../../../common/constants/consts_api.dart';
 
 abstract class ITransactionDataSource {
   Future<dynamic> getTransactions();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'modules/home/presentation/home_page.dart';
+import 'modules/authentication/presentation/authentication/authentication_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -8,7 +9,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const HomePage(),
+        home: const AuthenticationPage(),
         theme: ThemeData(
           primarySwatch: Colors.blue,
           hintColor: Colors.blueAccent,

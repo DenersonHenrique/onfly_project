@@ -1,4 +1,12 @@
+import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
-import 'package:onfly_project/app/app_widget.dart';
 
-main() => runApp(const AppWidget());
+import 'app/app_widget.dart';
+import 'app/common/dependency/dependency_injection.dart';
+
+main() async {
+  GetIt getIt = GetIt.instance;
+  final appInjection = AppInjection();
+  appInjection.call(getIt);
+  runApp(const AppWidget());
+}

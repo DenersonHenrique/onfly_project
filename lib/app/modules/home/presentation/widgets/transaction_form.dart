@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../constants/app_string.dart';
+import '../../../../common/constants/app_string.dart';
 
 class TransactionFormWidget extends StatefulWidget {
   final void Function(String, double, DateTime) onSubmit;
