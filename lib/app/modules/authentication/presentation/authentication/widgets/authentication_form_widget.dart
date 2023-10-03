@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:flutter/material.dart';
-import 'package:onfly_project/app/modules/home/presentation/home_page.dart';
 
 import '../../../../../utils/auth_utils.dart';
+import '../../../../home/presentation/home_page.dart';
 import '../controller/authentication_controller.dart';
 import '../../../../../common/constants/app_string.dart';
 import '../../../../../utils/form_field_validations.dart';
@@ -175,15 +175,17 @@ class _AuthenticationFormWidgetState extends State<AuthenticationFormWidget>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                    _submit();
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (BuildContext context) => const HomePage(),
-                    //     fullscreenDialog: true,
-                    //   ),
-                    // );
+                  onPressed: () async {
+                    await _submit();
+                    if (authenticationController.getUser!.token.isNotEmpty) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => const HomePage(),
+                          fullscreenDialog: true,
+                        ),
+                      );
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF0A5B9D),
@@ -197,20 +199,20 @@ class _AuthenticationFormWidgetState extends State<AuthenticationFormWidget>
                         : AppString.authenticationSignUpButton,
                   ),
                 ),
-                const SizedBox(width: 10.0),
-                ElevatedButton(
-                  onPressed: _switchAuthMode,
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  ),
-                  child: Text(
-                    _isAuthenticate()
-                        ? AppString.authenticationSignUpButton
-                        : AppString.authenticationSignInButton,
-                  ),
-                ),
+                // const SizedBox(width: 10.0),
+                // ElevatedButton(
+                //   onPressed: _switchAuthMode,
+                //   style: ElevatedButton.styleFrom(
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(10.0),
+                //     ),
+                //   ),
+                //   child: Text(
+                //     _isAuthenticate()
+                //         ? AppString.authenticationSignUpButton
+                //         : AppString.authenticationSignInButton,
+                //   ),
+                // ),
               ],
             ),
           ],

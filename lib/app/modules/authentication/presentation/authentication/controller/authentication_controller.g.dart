@@ -9,19 +9,19 @@ part of 'authentication_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$AuthenticationController on _AuthenticationControllerBase, Store {
-  late final _$_userEntityAtom =
-      Atom(name: '_AuthenticationControllerBase._userEntity', context: context);
+  late final _$_userAuthEntityAtom = Atom(
+      name: '_AuthenticationControllerBase._userAuthEntity', context: context);
 
   @override
-  UserAuthEntity? get _userEntity {
-    _$_userEntityAtom.reportRead();
-    return super._userEntity;
+  UserAuthEntity? get _userAuthEntity {
+    _$_userAuthEntityAtom.reportRead();
+    return super._userAuthEntity;
   }
 
   @override
-  set _userEntity(UserAuthEntity? value) {
-    _$_userEntityAtom.reportWrite(value, super._userEntity, () {
-      super._userEntity = value;
+  set _userAuthEntity(UserAuthEntity? value) {
+    _$_userAuthEntityAtom.reportWrite(value, super._userAuthEntity, () {
+      super._userAuthEntity = value;
     });
   }
 

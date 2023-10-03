@@ -20,7 +20,7 @@ abstract class _AuthenticationControllerBase with Store {
         _signUpWithEmailUsecase = signUpWithEmailUsecase;
 
   @observable
-  UserAuthEntity? _userEntity;
+  UserAuthEntity? _userAuthEntity;
 
   @observable
   UserDataEntity _userDataEntity = UserDataEntity(user: '', password: '');
@@ -33,6 +33,8 @@ abstract class _AuthenticationControllerBase with Store {
   @action
   void setPassword(String? value) => _userDataEntity.password = value ?? '';
 
+  UserAuthEntity? get getUser => _userAuthEntity;
+
   @action
   Future<void> authenticateUser(String isAuthenticated) async {
     final result = await _authenticationUsecase.userAuthentication(
@@ -41,7 +43,7 @@ abstract class _AuthenticationControllerBase with Store {
     );
     result.fold(
       (failure) => print(failure),
-      (result) => result,
+      (result) => _userAuthEntity = result,
     );
   }
 
@@ -53,7 +55,7 @@ abstract class _AuthenticationControllerBase with Store {
     );
     result.fold(
       (failure) => print(failure),
-      (result) => _userEntity = result,
+      (result) => _userAuthEntity = result,
     );
   }
 }
